@@ -1,0 +1,13 @@
+{
+  "name": "kiwi-tcms",
+  "plugins": [
+    {
+      "name": "kiwi-tcms",
+      "source": "url",
+      "url": "https://github.com/pei9564/auto-kiwi-tcms.git",
+      "ref": "main",
+      "description": "Generate, import, and export test cases for Kiwi TCMS via guided conversation.",
+      "version": "1.0.0"
+    }
+  ]
+}

@@ -5,11 +5,17 @@ Each test case in the YAML is created and added to the specified test plan.
 Use --dry-run to preview what would be imported without making any changes.
 
 Usage:
-    python tc_import.py --file workflow_mcp_test_cases.yaml --plan-id 12
-    python tc_import.py --file workflow_mcp_test_cases.yaml --plan-id 12 --tag "dify-workflow"
-    python tc_import.py --file workflow_mcp_test_cases.yaml --plan-id 12 --dry-run
-    python tc_import.py --file workflow_mcp_test_cases.yaml --plan-id 12 --offset 5
+    uv run skills/kiwi-tcms/scripts/import_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12
+    uv run skills/kiwi-tcms/scripts/import_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12 --tag "dify-workflow"
+    uv run skills/kiwi-tcms/scripts/import_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12 --dry-run
+    uv run skills/kiwi-tcms/scripts/import_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12 --offset 5
 """
+# /// script
+# dependencies = [
+#   "tcms-api",
+#   "pyyaml",
+# ]
+# ///
 
 import argparse
 

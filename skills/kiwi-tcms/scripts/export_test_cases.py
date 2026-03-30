@@ -2,9 +2,15 @@
 Export test cases from a Kiwi TCMS test plan to YAML or CSV.
 
 Usage:
-    python tc_export.py --plan-id 12 --output exported_test_cases.yaml
-    python tc_export.py --plan-id 12 --format csv --output exported_test_cases.csv
+    uv run skills/kiwi-tcms/scripts/export_test_cases.py --plan-id 12 --output test-cases/exported.yaml
+    uv run skills/kiwi-tcms/scripts/export_test_cases.py --plan-id 12 --format csv --output test-cases/exported.csv
 """
+# /// script
+# dependencies = [
+#   "tcms-api",
+#   "pyyaml",
+# ]
+# ///
 
 import argparse
 import csv

@@ -6,9 +6,15 @@ already exists in the plan, its text and priority are updated. Otherwise a
 new case is created and added to the plan.
 
 Usage:
-    python tc_upsert.py --file workflow_mcp_test_cases.yaml --plan-id 12
-    python tc_upsert.py --file workflow_mcp_test_cases.yaml --plan-id 12 --tag "dify-workflow"
+    uv run skills/kiwi-tcms/scripts/upsert_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12
+    uv run skills/kiwi-tcms/scripts/upsert_test_cases.py --file test-cases/workflow-mcp.yaml --plan-id 12 --tag "dify-workflow"
 """
+# /// script
+# dependencies = [
+#   "tcms-api",
+#   "pyyaml",
+# ]
+# ///
 
 import argparse
 
