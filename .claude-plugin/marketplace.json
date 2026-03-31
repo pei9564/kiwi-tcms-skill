@@ -1,12 +1,13 @@
 {
-  "name": "test-case-manager",
+  "owner": { "name": "pei9564" },
   "plugins": [
     {
       "name": "test-case-manager",
-      "source": "url",
-      "url": "https://github.com/pei9564/kiwi-tcms-skill.git",
-      "ref": "main",
-      "description": "Generate, import, and export test cases for Kiwi TCMS via guided conversation.",
+      "source": {
+        "source": "relative",
+        "path": "skills/test-case-manager"
+      },
+      "description": "Test case manager for Kiwi TCMS",
       "version": "1.0.0"
     }
   ]
