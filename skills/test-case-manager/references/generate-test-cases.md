@@ -31,16 +31,38 @@ Wait for the user's answers. If any answer is unclear or too vague to write a co
 
 ---
 
+## Step 1.5 — Preview Categories
+
+Before generating any test cases, tell the user which categories will be covered in this session and in what order. Example:
+
+> 接下來我會依序幫你產出以下幾類測試案例，每一類都會請你確認後再繼續：
+>
+> 1. **Function Test** — 核心功能 Happy Path
+> 2. **Integration Test** — 完整 E2E 流程
+> 3. **Exception Test** — 錯誤處理 / 非法輸入
+> 4. **Boundary Test** — 邊界 / 權限 / 空狀態
+> 5. **（其他類別）** — 根據你描述的功能特性判斷是否納入，我會在 Boundary Test 後說明
+>
+> 我們從 Function Test 開始。
+
+Do not wait for a response — proceed directly to Step 2.
+
+---
+
 ## Step 2 — Function Test
 
-Generate **Function Test** cases first and present them as a readable list:
+Generate **Function Test** cases and present them with reproduce steps and expected results:
 
 ```
 ### 3.Function Test — 核心功能（Happy Path）
 
-- [ ] <test case name>（priority 1）
-- [ ] <test case name>（priority 2）
-...
+**1. <test case name>**（priority 1）
+  - 步驟：1. ... 2. ... 3. ...
+  - 預期結果：...
+
+**2. <test case name>**（priority 2）
+  - 步驟：1. ... 2. ...
+  - 預期結果：...
 ```
 
 Ask: 「以上 Function Test 是否符合？有要增加或移除的嗎？」
@@ -51,13 +73,14 @@ Wait for confirmation before moving to the next step.
 
 ## Step 3 — Integration Test
 
-Generate **Integration Test** cases based on the confirmed Function Tests:
+Generate **Integration Test** cases with reproduce steps and expected results:
 
 ```
 ### 2.Integration Test — 完整 E2E 流程
 
-- [ ] <test case name>（priority 1）
-...
+**1. <test case name>**（priority 1）
+  - 步驟：1. ... 2. ... 3. ...
+  - 預期結果：...
 ```
 
 Ask: 「以上 Integration Test 是否符合？」
@@ -68,13 +91,14 @@ Wait for confirmation.
 
 ## Step 4 — Exception Test
 
-Generate **Exception Test** cases covering error handling and invalid inputs:
+Generate **Exception Test** cases with reproduce steps and expected results:
 
 ```
 ### 4.Exception Test — 錯誤處理 / 非法輸入
 
-- [ ] <test case name>（priority 1）
-...
+**1. <test case name>**（priority 1）
+  - 步驟：1. ... 2. ...
+  - 預期結果：...
 ```
 
 Ask: 「以上 Exception Test 是否符合？」
@@ -85,13 +109,14 @@ Wait for confirmation.
 
 ## Step 5 — Boundary Test
 
-Generate **Boundary Test** cases for edge values, permissions, and empty states:
+Generate **Boundary Test** cases with reproduce steps and expected results:
 
 ```
 ### 5.Boundary Test — 邊界 / 權限 / 空狀態
 
-- [ ] <test case name>（priority 1 or 2）
-...
+**1. <test case name>**（priority 1 or 2）
+  - 步驟：1. ... 2. ...
+  - 預期結果：...
 ```
 
 Ask: 「以上 Boundary Test 是否符合？」
@@ -112,7 +137,7 @@ Based on what you learned in Step 1, evaluate the remaining categories. For each
 >
 > 如果你認為某個類別判斷有誤，請告訴我，我會補上。
 
-For each **included** category, present the test case list and wait for confirmation before continuing.
+For each **included** category, present the test cases with reproduce steps and expected results (same format as Step 2–5), and wait for confirmation before continuing.
 
 ---
 

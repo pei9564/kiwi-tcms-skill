@@ -4,9 +4,9 @@ Claude Code skill for managing test cases with Kiwi TCMS.
 
 ## Skills
 
-### `kiwi-tcms`
+### `test-case-manager`
 
-Located at `skills/kiwi-tcms/`. Contains two references:
+Located at `skills/test-case-manager/`. Contains three references:
 
 | Reference | Description |
 |-----------|-------------|
@@ -16,7 +16,7 @@ Located at `skills/kiwi-tcms/`. Contains two references:
 
 ## Scripts
 
-Located at `skills/kiwi-tcms/scripts/`. Run with `uv run` — no global installs required.
+Located at `skills/test-case-manager/scripts/`. Run with `uv run` — no global installs required.
 
 | Script | Description |
 |--------|-------------|
@@ -42,7 +42,16 @@ test_cases:
       - "資料庫狀態更新"
 ```
 
+If `steps` or `expected_result` could not be parsed during export, the raw content is preserved under `raw_text` instead:
+
+```yaml
+  - category: "3.Function Test"
+    test_case: "描述性的測試案例名稱"
+    priority: 1
+    raw_text: "<unparsed content from Kiwi>"
+```
+
 ## Requirements
 
 - [uv](https://github.com/astral-sh/uv) — `curl -LsSf https://astral.sh/uv/install.sh | sh`
-- Kiwi TCMS access — configure credentials in `skills/kiwi-tcms/scripts/kiwi_controller.py`
+- Kiwi TCMS access — configure credentials in `skills/test-case-manager/kiwi.env` (see `kiwi.env.example`)

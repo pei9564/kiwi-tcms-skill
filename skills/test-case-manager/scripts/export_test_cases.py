@@ -2,8 +2,8 @@
 Export test cases from a Kiwi TCMS test plan to YAML or CSV.
 
 Usage:
-    uv run skills/kiwi-tcms/scripts/export_test_cases.py --plan-id 12 --output test-cases/exported.yaml
-    uv run skills/kiwi-tcms/scripts/export_test_cases.py --plan-id 12 --format csv --output test-cases/exported.csv
+    uv run skills/test-case-manager/scripts/export_test_cases.py --plan-id 12 --output test-cases/exported.yaml
+    uv run skills/test-case-manager/scripts/export_test_cases.py --plan-id 12 --format csv --output test-cases/exported.csv
 """
 # /// script
 # dependencies = [
@@ -46,14 +46,18 @@ def parse_text(text: str) -> tuple[list[str], list[str]]:
 
 
 def fetch_test_cases(rpc, plan_id: int) -> list[dict]:
-    cases = rpc.TestPlan.get_cases(plan_id)
+    cases = rpc.TestCase.filter({"plan": plan_id})
     result = []
 
     for case in cases:
-        case_id = case["id"]
-        text_entries = rpc.TestCase.get_text(case_id)
-        text = text_entries[0].get("case_text", "") if text_entries else ""
-        steps, expected = parse_text(text)
+        text = case.get("text", "")
+        if text:
+            steps, expected = parse_text(text)
+        else:
+            raw_steps = case.get("steps", "") or ""
+            raw_expected = case.get("expected_result", "") or ""
+            steps = [line.strip() for line in raw_steps.strip().splitlines() if line.strip()]
+            expected = [line.strip() for line in raw_expected.strip().splitlines() if line.strip()]
 
         priority_id = case.get("priority_id") or case.get("priority", {})
         if isinstance(priority_id, dict):
@@ -63,15 +67,19 @@ def fetch_test_cases(rpc, plan_id: int) -> list[dict]:
         if isinstance(cat_name, dict):
             cat_name = cat_name.get("name", "")
 
-        result.append(
-            {
-                "category": cat_name or "",
-                "test_case": case["summary"],
-                "priority": PRIORITY_ID_MAP.get(priority_id, 2),
-                "steps": steps,
-                "expected_result": expected,
-            }
-        )
+        entry = {
+            "category": cat_name or "",
+            "test_case": case["summary"],
+            "priority": PRIORITY_ID_MAP.get(priority_id, 2),
+        }
+
+        if steps and expected:
+            entry["steps"] = steps
+            entry["expected_result"] = expected
+        elif text:
+            entry["raw_text"] = text
+
+        result.append(entry)
 
     return result
 

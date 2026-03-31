@@ -8,7 +8,7 @@ Export test cases from a Kiwi TCMS test plan to a local YAML or CSV file by runn
 
 Before running anything:
 
-1. Check if `skills/kiwi-tcms/kiwi.env` exists.
+1. Check if `skills/test-case-manager/kiwi.env` exists.
 
    **If it exists**, read it and show the user the current values. Ask:
 
@@ -17,14 +17,14 @@ Before running anything:
    > - 帳號: `<KIWI_USERNAME>`
    > - 密碼: `<KIWI_PASSWORD>`
 
-   If any value is wrong, update `skills/kiwi-tcms/kiwi.env` before proceeding.
+   If any value is wrong, update `skills/test-case-manager/kiwi.env` before proceeding.
 
    **If it does not exist**, ask the user for:
    - Kiwi TCMS URL (e.g. `https://<host>:<port>/xml-rpc/`)
    - Username
    - Password
 
-   Then create `skills/kiwi-tcms/kiwi.env` with the provided values:
+   Then create `skills/test-case-manager/kiwi.env` with the provided values:
    ```
    KIWI_URL=<url>
    KIWI_USERNAME=<username>
@@ -49,7 +49,7 @@ Ask the user for any missing required parameters:
 Run from the project root:
 
 ```bash
-uv run --env-file skills/kiwi-tcms/kiwi.env skills/kiwi-tcms/scripts/export_test_cases.py --plan-id <plan_id> --output <output> [--format csv]
+uv run --env-file skills/test-case-manager/kiwi.env skills/test-case-manager/scripts/export_test_cases.py --plan-id <plan_id> --output <output> [--format csv]
 ```
 
 ---

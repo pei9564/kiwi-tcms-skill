@@ -8,7 +8,7 @@ Import a YAML test case file into Kiwi TCMS by running `scripts/tc_import.py` vi
 
 Before running anything:
 
-1. Check if `skills/kiwi-tcms/kiwi.env` exists.
+1. Check if `skills/test-case-manager/kiwi.env` exists.
 
    **If it exists**, read it and show the user the current values. Ask:
 
@@ -17,14 +17,14 @@ Before running anything:
    > - 帳號: `<KIWI_USERNAME>`
    > - 密碼: `<KIWI_PASSWORD>`
 
-   If any value is wrong, update `skills/kiwi-tcms/kiwi.env` before proceeding.
+   If any value is wrong, update `skills/test-case-manager/kiwi.env` before proceeding.
 
    **If it does not exist**, ask the user for:
    - Kiwi TCMS URL (e.g. `https://<host>:<port>/xml-rpc/`)
    - Username
    - Password
 
-   Then create `skills/kiwi-tcms/kiwi.env` with the provided values:
+   Then create `skills/test-case-manager/kiwi.env` with the provided values:
    ```
    KIWI_URL=<url>
    KIWI_USERNAME=<username>
@@ -54,7 +54,7 @@ Always run with `--dry-run` on the first execution. Only remove it after the use
 Run from the project root using `uv run` so dependencies are resolved in an isolated environment:
 
 ```bash
-uv run --env-file skills/kiwi-tcms/kiwi.env skills/kiwi-tcms/scripts/import_test_cases.py --file <file> --plan-id <plan_id> [--tag <tag>] [--offset <N>] [--dry-run]
+uv run --env-file skills/test-case-manager/kiwi.env skills/test-case-manager/scripts/import_test_cases.py --file <file> --plan-id <plan_id> [--tag <tag>] [--offset <N>] [--dry-run]
 ```
 
 ---
