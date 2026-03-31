@@ -2,6 +2,15 @@
 
 Claude Code skill for managing test cases with Kiwi TCMS.
 
+## Quick Start
+
+```
+/plugin marketplace add pei9564/kiwi-tcms-skill
+/plugin install test-case-manager@kiwi-tcms-skill
+```
+
+安裝後直接告訴 Claude「幫我產 test case」或「幫我 import 到 Kiwi」即可開始。
+
 ## Skills
 
 ### `test-case-manager`
