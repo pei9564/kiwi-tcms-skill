@@ -1,5 +1,6 @@
 {
-  "name": "kiwi-tcms-skill",
+  "name": "test-case-manager",
   "description": "Test case manager for Kiwi TCMS",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "skills": "./skills/"
 }

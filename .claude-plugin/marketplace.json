@@ -1,11 +1,17 @@
 {
   "name": "kiwi-tcms-skill",
+  "owner": {
+    "name": "pei9564"
+  },
   "plugins": [
     {
       "name": "test-case-manager",
-      "source": "skills/test-case-manager",
       "description": "Test case manager for Kiwi TCMS",
-      "version": "1.0.0"
+      "source": {
+        "source": "url",
+        "url": "https://github.com/pei9564/kiwi-tcms-skill.git",
+        "ref": "main"
+      }
     }
   ]
 }
