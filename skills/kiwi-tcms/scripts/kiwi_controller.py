@@ -5,9 +5,9 @@ import ssl
 
 import tcms_api
 
-KIWI_URL = "https://172.18.246.37:30666/xml-rpc/"
-KIWI_USERNAME = "penny6_lee"
-KIWI_PASSWORD = "pega#1234"
+KIWI_URL = os.environ["KIWI_URL"]
+KIWI_USERNAME = os.environ["KIWI_USERNAME"]
+KIWI_PASSWORD = os.environ["KIWI_PASSWORD"]
 
 
 def get_kiwi_ctr():

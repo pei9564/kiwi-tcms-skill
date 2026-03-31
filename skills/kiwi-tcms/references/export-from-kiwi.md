@@ -8,14 +8,28 @@ Export test cases from a Kiwi TCMS test plan to a local YAML or CSV file by runn
 
 Before running anything:
 
-1. Read `skills/kiwi-tcms/scripts/kiwi_controller.py` and show the user the current values of `KIWI_URL`, `KIWI_USERNAME`, and `KIWI_PASSWORD`. Ask:
+1. Check if `skills/kiwi-tcms/kiwi.env` exists.
+
+   **If it exists**, read it and show the user the current values. Ask:
 
    > 目前連線設定如下，是否正確？
-   > - URL: `<current KIWI_URL>`
-   > - 帳號: `<current KIWI_USERNAME>`
-   > - 密碼: `<current KIWI_PASSWORD>`
+   > - URL: `<KIWI_URL>`
+   > - 帳號: `<KIWI_USERNAME>`
+   > - 密碼: `<KIWI_PASSWORD>`
 
-   If any value is wrong, edit `skills/kiwi-tcms/scripts/kiwi_controller.py` before proceeding.
+   If any value is wrong, update `skills/kiwi-tcms/kiwi.env` before proceeding.
+
+   **If it does not exist**, ask the user for:
+   - Kiwi TCMS URL (e.g. `https://<host>:<port>/xml-rpc/`)
+   - Username
+   - Password
+
+   Then create `skills/kiwi-tcms/kiwi.env` with the provided values:
+   ```
+   KIWI_URL=<url>
+   KIWI_USERNAME=<username>
+   KIWI_PASSWORD=<password>
+   ```
 
 2. Run `uv --version` to verify uv is installed. If the command fails, tell the user to install uv first: `curl -LsSf https://astral.sh/uv/install.sh | sh`
 
@@ -35,7 +49,7 @@ Ask the user for any missing required parameters:
 Run from the project root:
 
 ```bash
-uv run skills/kiwi-tcms/scripts/export_test_cases.py --plan-id <plan_id> --output <output> [--format csv]
+uv run --env-file skills/kiwi-tcms/kiwi.env skills/kiwi-tcms/scripts/export_test_cases.py --plan-id <plan_id> --output <output> [--format csv]
 ```
 
 ---

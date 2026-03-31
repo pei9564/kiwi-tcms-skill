@@ -1,5 +1,5 @@
 {
-  "name": "kiwi-tcms",
+  "name": "test-case-manager",
   "description": "Generate, import, and export test cases for Kiwi TCMS via guided conversation.",
   "version": "1.0.0",
   "keywords": ["testing", "tcms", "kiwi", "test-cases", "qa"]

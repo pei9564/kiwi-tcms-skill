@@ -1,10 +1,10 @@
 {
-  "name": "kiwi-tcms",
+  "name": "test-case-manager",
   "plugins": [
     {
-      "name": "kiwi-tcms",
+      "name": "test-case-manager",
       "source": "url",
-      "url": "https://github.com/pei9564/auto-kiwi-tcms.git",
+      "url": "https://github.com/pei9564/kiwi-tcms-skill.git",
       "ref": "main",
       "description": "Generate, import, and export test cases for Kiwi TCMS via guided conversation.",
       "version": "1.0.0"
