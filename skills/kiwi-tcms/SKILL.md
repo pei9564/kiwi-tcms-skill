@@ -1,5 +1,5 @@
 ---
-name: kiwi-tcms
+name: test-case-manager
 description: Manage test cases for Kiwi TCMS. Use "gen" to generate YAML test cases through a guided conversation — first clarifying feature details and reproduce steps, then generating category by category (Function → Integration → Exception → Boundary → others) with user confirmation at each step. Use "import" to import a YAML file into a Kiwi TCMS test plan by running tc_import.py.
 references:
   - name: generate-test-cases
