@@ -1,4 +1,4 @@
-# auto-kiwi-tcms
+# kiwi-tcms-skill
 
 Claude Code skill for managing test cases with Kiwi TCMS.
 
